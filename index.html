@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <header>
+      <i class="fas fa-snowflake fa-3x" id="snowflake"></i>
+      <h1 id="title">Weather Dashboard</h1>
+      <i class="fas fa-sun fa-3x" id="sun"></i>
+    </header>
+    <div class="main-section">
+      <aside class="searchContainer">
+        <h2 id="searchFor">Search for a city...</h2>
+        <input type="text" placeholder="London" id="searchInput" />
+        <div id="searchBtn">Search</div>
+        <div id="searchDivider"></div>
+        <div id="searchHistory">
+          <p>London</p>
+          <p>Birmingham</p>
+          <p>Paris</p>
+          <p>Barcelone</p>
+          <p>Lisbon</p>
+        </div>
+      </aside>
+      <main class="forecastContainer">
+        <section id="currentForecast">
+          <p id="cityName">London</p>
+          <p>Temp: <span id="curTemp">5</span> ℃</p>
+          <p>Wind: <span id="curWind">5</span> KPH</p>
+          <p>Humidity: <span id="curHumidity">5</span>%</p>
+        </section>
+        <section id="forecastContainer">
+          <h2 id="forecastTitle">5 Day forecast:</h2>
+          <div class="forecasts">
+            <div class="forecastDay">
+              <p>Day</p>
+              <p>Image</p>
+              <p>Temp: <span></span>℃</p>
+              <p>Wind</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- jQuery -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="script/script.js"></script>
+  </body>
+</html>

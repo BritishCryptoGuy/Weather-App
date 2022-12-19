@@ -1,0 +1,153 @@
+:root {
+  --brown--scheme: #77685d;
+  --dBlue--scheme: #161b33;
+  --blue--scheme: #058ed9;
+  --cream--scheme: #f4ebd9;
+  --dBrown--scheme: #483d3f;
+  --lBrown--scheme: #a39a92;
+  --orange--scheme: #f96e46;
+  --white--scheme: #ecf0f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  /* background: linear-gradient(
+    to bottom right,
+    var(--dBlue--scheme),
+    var(--white--scheme)
+  ); */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  /* background: var(--blue--scheme); */
+  background: linear-gradient(
+    to bottom right,
+    var(--dBlue--scheme),
+    var(--blue--scheme)
+  );
+  outline: solid 3px var(--dBlue--scheme);
+
+  /* box-shadow: 0px 0px 300px 200px var(--blue--scheme); */
+}
+#title {
+  color: var(--white--scheme);
+  font-size: 3em;
+  text-shadow: 0 0 20px var(--dBlue--scheme);
+}
+#snowflake {
+  color: var(--blue--scheme);
+}
+#sun {
+  color: var(--orange--scheme);
+}
+
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.searchContainer {
+  width: 29%;
+}
+.forecastContainer {
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+}
+
+#searchFor {
+  text-align: center;
+  font-size: xx-large;
+  padding-bottom: 5px;
+}
+#searchInput {
+  width: 100%;
+  font-size: 1.5em;
+}
+#searchBtn {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 50px;
+  height: 30px;
+  color: var(--white--scheme);
+  background-color: var(--blue--scheme);
+  border-radius: 6px;
+  border: 1px solid var(--dBlue--scheme);
+}
+
+#searchDivider {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+#searchHistory p {
+  display: flex;
+  justify-content: center;
+  margin: 10px 50px;
+  padding: 5px 0px;
+  color: black;
+  background-color: var(--cream--scheme);
+  border: 1px solid var(--dBlue--scheme);
+}
+
+#currentForecast {
+  border: 2px solid var(--dBlue--scheme);
+  padding: 15px 40px;
+  color: var(--dBlue--scheme);
+  background: linear-gradient(
+    to bottom right,
+    var(--white--scheme),
+    var(--blue--scheme)
+  );
+}
+#currentForecast p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#cityName {
+  font-size: xx-large;
+}
+#forecastTitle {
+  padding: 10px 0;
+}
+
+.forecasts {
+  display: flex;
+  justify-content: space-between;
+}
+.forecastDay {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 19%;
+  color: var(--white--scheme);
+  background: linear-gradient(
+    to bottom right,
+    var(--dBlue--scheme),
+    var(--blue--scheme)
+  );
+  padding: 20px 5px;
+  border-radius: 6px;
+  border: 3px solid black;
+}
+.forecastDay p {
+  font-size: 1em;
+  padding: 5px 5px;
+}
