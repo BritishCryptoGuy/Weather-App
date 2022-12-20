@@ -59,7 +59,7 @@ function setCurrent(data) {
   forecastContainer.classList.remove("hidden");
   currentForecast.insertAdjacentHTML(
     "afterbegin",
-    `<p id="cityName">${data.name} (${currentDate})<img class="forecastIcon"src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></img></p>
+    `<p id="cityName">${data.name} (${currentDate})<img class="currentForecastIcon"src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"></img></p>
   <p>Temp: <span id="curTemp">${data.main.temp}</span> ℃</p>
   <p>Wind: <span id="curWind">${data.wind.speed}</span> KPH</p>
   <p>Humidity: <span id="curHumidity">${data.main.humidity}</span>%</p>`

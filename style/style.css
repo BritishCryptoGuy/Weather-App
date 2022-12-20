@@ -94,8 +94,7 @@ header {
   border: 1px solid var(--dBlue--scheme);
 }
 #searchBtn:hover {
-  background-color: var(--white--scheme);
-  color: var(--blue--scheme);
+  background-color: var(--orange--scheme);
   cursor: pointer;
 }
 
@@ -110,12 +109,20 @@ header {
   justify-content: center;
   margin: 10px 0;
   padding: 5px 0px;
-  color: black;
-  background-color: var(--cream--scheme);
+  color: var(--blue--scheme);
+  background-color: var(--white--scheme);
   border: 1px solid var(--dBlue--scheme);
   border-radius: 4px;
 }
-
+#searchHistory p:hover {
+  color: var(--white--scheme);
+  background: linear-gradient(
+    to bottom right,
+    var(--dBlue--scheme),
+    var(--blue--scheme)
+  );
+  cursor: pointer;
+}
 #currentForecast {
   border: 2px solid var(--dBlue--scheme);
   padding: 15px 40px;
@@ -126,6 +133,11 @@ header {
     var(--blue--scheme)
   );
   border-radius: 4px;
+}
+.currentForecastIcon {
+  margin: -35px 0px;
+  height: fit-content;
+  width: fit-content;
 }
 #currentForecast p {
   padding-top: 5px;
