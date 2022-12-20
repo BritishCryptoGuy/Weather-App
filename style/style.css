@@ -68,6 +68,7 @@ header {
   width: 69%;
   display: flex;
   flex-direction: column;
+  transition: all 0.75s ease;
 }
 
 #searchFor {
@@ -78,18 +79,24 @@ header {
 #searchInput {
   width: 100%;
   font-size: 1.5em;
+  border-radius: 4px;
 }
 #searchBtn {
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 50px;
+  margin: 10px 0;
   height: 30px;
   color: var(--white--scheme);
   background-color: var(--blue--scheme);
-  border-radius: 6px;
+  border-radius: 4px;
   border: 1px solid var(--dBlue--scheme);
+}
+#searchBtn:hover {
+  background-color: var(--white--scheme);
+  color: var(--blue--scheme);
+  cursor: pointer;
 }
 
 #searchDivider {
@@ -99,12 +106,14 @@ header {
 
 #searchHistory p {
   display: flex;
+  width: 100%;
   justify-content: center;
-  margin: 10px 50px;
+  margin: 10px 0;
   padding: 5px 0px;
   color: black;
   background-color: var(--cream--scheme);
   border: 1px solid var(--dBlue--scheme);
+  border-radius: 4px;
 }
 
 #currentForecast {
@@ -116,6 +125,7 @@ header {
     var(--white--scheme),
     var(--blue--scheme)
   );
+  border-radius: 4px;
 }
 #currentForecast p {
   padding-top: 5px;
@@ -144,10 +154,31 @@ header {
     var(--blue--scheme)
   );
   padding: 20px 5px;
-  border-radius: 6px;
-  border: 3px solid black;
+  border-radius: 4px;
+  border: 2px solid black;
 }
 .forecastDay p {
   font-size: 1em;
   padding: 5px 5px;
+}
+.forecastIcon {
+  height: 60px;
+  width: fit-content;
+}
+.forecastDay p:first-child {
+  font-size: 1.2em;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.col-centre {
+  flex-direction: column;
+  align-items: center;
 }
