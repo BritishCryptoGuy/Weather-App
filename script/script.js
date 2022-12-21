@@ -1,30 +1,51 @@
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=metric
 // https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+
 //Variables including DOM
 const apiKey = "c8e7c2ae87c3fed959762e4a7c9e6b01";
 let currentDate = moment().format("DD/MM/YYYY");
-let currentTime = moment().format("HH:mm:ss");
 const mainSection = document.querySelector(".main-section");
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector("#searchBtn");
-const searchHistory = document.querySelector("#searchHistory");
+const prevSearch = document.querySelector("#prevSearch");
 const forecastContainer = document.querySelector(".forecastContainer");
 const currentForecast = document.querySelector("#currentForecast");
 const forecasts = document.querySelector(".forecasts");
 
-function saveStorage(cityName) {
-  // let cityArray=[];
-  // if (localStorage.getItem("SearchHistory")){
-  //  cityArray = JSON.parse(localStorage.getItem("SearchHistory"));
-  //   console.log(cityName);
-  // }
-  // localStorage.setItem("SearchHistory", JSON.stringify(saveInput));
-  // let storage = JSON.parse(localStorage.getItem("SearchHistory"));
+//init Function is called on page loading to setup page
+function init() {
+  loadHistory();
 }
 
+//saveStorage function. Saves cityName to local storage;
+function saveStorage(cityName) {
+  if (localStorage.getItem("searchHistory") !== null) {
+    let allSearches = [...JSON.parse(localStorage.getItem("searchHistory"))];
+    if (allSearches.includes(cityName)) {
+      return;
+    } else {
+      allSearches.push(cityName);
+      localStorage.setItem("searchHistory", JSON.stringify(allSearches));
+    }
+  } else {
+    let allSearches = [cityName];
+    localStorage.setItem("searchHistory", JSON.stringify(allSearches));
+  }
+}
+//loadHistory function. Called to update prevSearch HTML
+function loadHistory() {
+  prevSearch.innerHTML = "";
+  if (localStorage.getItem("searchHistory") === null) {
+    return;
+  } else {
+    let searchHistory = [...JSON.parse(localStorage.getItem("searchHistory"))];
+    searchHistory.forEach((history) =>
+      prevSearch.insertAdjacentHTML("beforeend", `<p>${history}</p>`)
+    );
+  }
+}
 //getForecast receives coordinates from previous fetch request. Then uses them to retrieve data required to insert forecast HTML
 function getForecast(data) {
-  console.log(data);
   forecasts.innerHTML = "";
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${data[0]}&lon=${data[1]}&appid=${apiKey}&units=metric`
@@ -75,6 +96,7 @@ function getCoords(cityName) {
     .then(function (info) {
       mainSection.classList.remove("col-centre");
       saveStorage(info.name);
+      loadHistory();
       let lat = info.coord.lat;
       let lon = info.coord.lon;
       setCurrent(info);
@@ -104,18 +126,22 @@ searchBtn.addEventListener("click", function () {
     getCoords(data);
   }
 });
+prevSearch.addEventListener("click", function (e) {
+  getCoords(e.target.innerHTML);
+});
 
+init();
 /*
 Data is put into search box. //
 Data is trimmed//
 data is used in fetch api in order to get city coords//
 City name is added to local storage 
 also this data is considered current and will be used for the current forecast//
-then data is passed to get weather function.
-get weather function fetch requests using the coords received. 
-Gets data from api.
-api data is then used to insertadjacent html into the forecasts
-Only use the data that is for 12PM time// This should lead to five forecasts all at 12pm
+then data is passed to get weather function.//
+get weather function fetch requests using the coords received. //
+Gets data from api. //
+api data is then used to insertadjacent html into the forecasts //
+Only use the data that is for 12PM time// This should lead to five forecasts all at 12pm //
 
 
 

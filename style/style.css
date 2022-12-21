@@ -1,34 +1,29 @@
+/* root Css */
 :root {
-  --brown--scheme: #77685d;
   --dBlue--scheme: #161b33;
   --blue--scheme: #058ed9;
-  --cream--scheme: #f4ebd9;
-  --dBrown--scheme: #483d3f;
-  --lBrown--scheme: #a39a92;
   --orange--scheme: #f96e46;
   --white--scheme: #ecf0f1;
 }
 
+/* all selected css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* html & body css */
 html,
 body {
   height: 100%;
 }
 
 body {
-  font-family: sans-serif;
-  /* background: linear-gradient(
-    to bottom right,
-    var(--dBlue--scheme),
-    var(--white--scheme)
-  ); */
+  font-family: "Noto Sans", sans-serif;
 }
 
+/* header section css */
 header {
   display: flex;
   justify-content: space-between;
@@ -41,8 +36,7 @@ header {
     var(--blue--scheme)
   );
   outline: solid 3px var(--dBlue--scheme);
-
-  /* box-shadow: 0px 0px 300px 200px var(--blue--scheme); */
+  /* box-shadow: 0px 0px 300px 30px var(--blue--scheme); */
 }
 #title {
   color: var(--white--scheme);
@@ -56,19 +50,16 @@ header {
   color: var(--orange--scheme);
 }
 
+/* div .main-section css */
 .main-section {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 }
+
+/* aside/ search Container css  */
 .searchContainer {
   width: 29%;
-}
-.forecastContainer {
-  width: 69%;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.75s ease;
 }
 
 #searchFor {
@@ -103,7 +94,7 @@ header {
   border-bottom: 1px solid black;
 }
 
-#searchHistory p {
+#prevSearch p {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -114,7 +105,7 @@ header {
   border: 1px solid var(--dBlue--scheme);
   border-radius: 4px;
 }
-#searchHistory p:hover {
+#prevSearch p:hover {
   color: var(--white--scheme);
   background: linear-gradient(
     to bottom right,
@@ -122,6 +113,13 @@ header {
     var(--blue--scheme)
   );
   cursor: pointer;
+}
+/* main/.forecastContainer section css */
+.forecastContainer {
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.75s ease;
 }
 #currentForecast {
   border: 2px solid var(--dBlue--scheme);
@@ -181,6 +179,7 @@ header {
   font-size: 1.2em;
 }
 
+/* add/removeable css classes */
 .hidden {
   visibility: hidden;
   opacity: 0;

@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style/style.css" />
     <link
       rel="stylesheet"
@@ -28,40 +33,19 @@
         <input type="text" placeholder="London" id="searchInput" />
         <div id="searchBtn">Search</div>
         <div id="searchDivider"></div>
-        <div id="searchHistory">
-          <p>London</p>
-          <p>Birmingham</p>
-          <p>Paris</p>
-          <p>Barcelone</p>
-          <p>Lisbon</p>
-        </div>
+        <div id="prevSearch"></div>
       </aside>
       <main class="forecastContainer hidden">
-        <section id="currentForecast">
-          <!-- <p id="cityName">London</p>
-          <p>Temp: <span id="curTemp">5</span> ℃</p>
-          <p>Wind: <span id="curWind">5</span> KPH</p>
-          <p>Humidity: <span id="curHumidity">5</span>%</p> -->
-        </section>
+        <section id="currentForecast"></section>
         <section id="forecastContainer">
           <h2 id="forecastTitle">5 Day forecast:</h2>
-          <div class="forecasts">
-            <!-- <div class="forecastDay">
-              <p>Day</p>
-              <p>Image</p>
-              <p>Temp: <span></span>℃</p>
-              <p>Wind</p>
-              <p>Humidity</p>
-            </div> -->
-          </div>
+          <div class="forecasts"></div>
         </section>
       </main>
     </div>
 
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <!-- jQuery -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <script src="script/script.js"></script>
   </body>
 </html>
