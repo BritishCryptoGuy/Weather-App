@@ -7,6 +7,7 @@ let currentDate = moment().format("DD/MM/YYYY");
 const mainSection = document.querySelector(".main-section");
 const searchInput = document.querySelector("#searchInput");
 const searchBtn = document.querySelector("#searchBtn");
+const notification = document.querySelector(".notification");
 const prevSearch = document.querySelector("#prevSearch");
 const forecastContainer = document.querySelector(".forecastContainer");
 const currentForecast = document.querySelector("#currentForecast");
@@ -15,6 +16,14 @@ const forecasts = document.querySelector(".forecasts");
 //init Function is called on page loading to setup page
 function init() {
   loadHistory();
+}
+
+function notificationFunc() {
+  // notification.classList.remove("hidden");
+  notification.classList.add("show");
+  setTimeout(function () {
+    notification.classList.remove("show");
+  }, 3000);
 }
 
 //saveStorage function. Saves cityName to local storage;
@@ -46,6 +55,9 @@ function loadHistory() {
 }
 //getForecast receives coordinates from previous fetch request. Then uses them to retrieve data required to insert forecast HTML
 function getForecast(data) {
+  if (data === undefined) {
+    return;
+  }
   forecasts.innerHTML = "";
   fetch(
     `https://api.openweathermap.org/data/2.5/forecast?lat=${data[0]}&lon=${data[1]}&appid=${apiKey}&units=metric`
@@ -94,6 +106,10 @@ function getCoords(cityName) {
   )
     .then((data) => data.json())
     .then(function (info) {
+      if (info.name === undefined) {
+        notificationFunc();
+        return;
+      }
       mainSection.classList.remove("col-centre");
       saveStorage(info.name);
       loadHistory();
@@ -102,9 +118,14 @@ function getCoords(cityName) {
       setCurrent(info);
       return [lat, lon];
     })
-    .then((data) => getForecast(data));
+    .then(function (data) {
+      if (data === undefined) {
+        return;
+      } else {
+        getForecast(data);
+      }
+    });
 }
-// getCoords();
 
 //Event Listeners
 searchInput.addEventListener("keydown", function (e) {

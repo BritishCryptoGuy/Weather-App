@@ -50,6 +50,23 @@ header {
   color: var(--orange--scheme);
 }
 
+/* error div search css */
+.notification {
+  font-size: 30px;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  height: 45px;
+  color: var(--white--scheme);
+  background-color: var(--orange--scheme);
+  border-radius: 33px;
+  border: 1px solid var(--dBlue--scheme);
+  transition: all 0.75s ease;
+}
 /* div .main-section css */
 .main-section {
   display: flex;
