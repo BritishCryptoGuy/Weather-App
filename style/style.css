@@ -60,7 +60,7 @@ header {
   left: 5%;
   right: 5%;
   text-align: center;
-  height: 45px;
+  height: fit-content;
   color: var(--white--scheme);
   background-color: var(--orange--scheme);
   border-radius: 33px;
@@ -186,7 +186,7 @@ header {
 }
 .forecastDay p {
   font-size: 1em;
-  padding: 5px 5px;
+  padding: 2px 1px;
 }
 .forecastIcon {
   height: 60px;

@@ -18,8 +18,8 @@ function init() {
   loadHistory();
 }
 
+//notifcationFunc is called when an input doesn't match a city name in the api
 function notificationFunc() {
-  // notification.classList.remove("hidden");
   notification.classList.add("show");
   setTimeout(function () {
     notification.classList.remove("show");
@@ -31,9 +31,15 @@ function saveStorage(cityName) {
   if (localStorage.getItem("searchHistory") !== null) {
     let allSearches = [...JSON.parse(localStorage.getItem("searchHistory"))];
     if (allSearches.includes(cityName)) {
+      let index = allSearches.indexOf(cityName);
+      allSearches.unshift(allSearches.splice(index, 1)[0]);
+      localStorage.setItem("searchHistory", JSON.stringify(allSearches));
       return;
     } else {
-      allSearches.push(cityName);
+      if (allSearches.length > 6) {
+        allSearches.pop();
+      }
+      allSearches.unshift(cityName);
       localStorage.setItem("searchHistory", JSON.stringify(allSearches));
     }
   } else {
