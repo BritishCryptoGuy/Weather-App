@@ -210,3 +210,52 @@ header {
   flex-direction: column;
   align-items: center;
 }
+
+/* Media queries css */
+@media (max-width: 1050px) {
+  .forecasts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    row-gap: 5px;
+    column-gap: 5px;
+    justify-items: center;
+  }
+  .forecastDay {
+    width: auto;
+    justify-self: stretch;
+  }
+  #currentForecast {
+    padding: 5px 5px;
+  }
+
+  .currentForecastIcon {
+    position: absolute;
+  }
+}
+@media (max-width: 800px) {
+  #cityName {
+    font-size: large;
+  }
+  /* .currentForecastIcon {
+    position: relative;
+  } */
+}
+@media (max-width: 600px) {
+  header {
+    padding: 7px;
+  }
+  .main-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #title {
+    color: var(--white--scheme);
+    font-size: 1.45em;
+    text-shadow: 0 0 20px var(--dBlue--scheme);
+  }
+  .forecasts {
+    grid-template-columns: 1fr;
+  }
+}

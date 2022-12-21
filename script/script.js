@@ -103,6 +103,7 @@ function setCurrent(data) {
   <p>Wind: <span id="curWind">${data.wind.speed}</span> KPH</p>
   <p>Humidity: <span id="curHumidity">${data.main.humidity}</span>%</p>`
   );
+  currentForecast.scrollIntoView();
 }
 
 //getCoords function. Fetch request made to get coords in order to be used for the forecast
