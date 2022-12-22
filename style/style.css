@@ -5,14 +5,12 @@
   --orange--scheme: #f96e46;
   --white--scheme: #ecf0f1;
 }
-
 /* all selected css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 /* html & body css */
 html,
 body {
@@ -22,7 +20,6 @@ body {
 body {
   font-family: "Noto Sans", sans-serif;
 }
-
 /* header section css */
 header {
   display: flex;
@@ -49,7 +46,6 @@ header {
 #sun {
   color: var(--orange--scheme);
 }
-
 /* error div search css */
 .notification {
   font-size: 30px;
@@ -73,12 +69,10 @@ header {
   justify-content: space-between;
   padding: 20px;
 }
-
 /* aside/ search Container css  */
 .searchContainer {
   width: 29%;
 }
-
 #searchFor {
   text-align: center;
   font-size: xx-large;
@@ -105,12 +99,10 @@ header {
   background-color: var(--orange--scheme);
   cursor: pointer;
 }
-
 #searchDivider {
   width: 100%;
   border-bottom: 1px solid black;
 }
-
 #prevSearch p {
   display: flex;
   width: 100%;
@@ -139,7 +131,7 @@ header {
   transition: all 0.75s ease;
 }
 #currentForecast {
-  border: 2px solid var(--dBlue--scheme);
+  border: 1px solid var(--dBlue--scheme);
   padding: 15px 40px;
   color: var(--dBlue--scheme);
   background: linear-gradient(
@@ -164,7 +156,6 @@ header {
 #forecastTitle {
   padding: 10px 0;
 }
-
 .forecasts {
   display: flex;
   justify-content: space-between;
@@ -182,7 +173,6 @@ header {
   );
   padding: 20px 5px;
   border-radius: 4px;
-  border: 2px solid black;
 }
 .forecastDay p {
   font-size: 1em;
@@ -195,7 +185,6 @@ header {
 .forecastDay p:first-child {
   font-size: 1.2em;
 }
-
 /* add/removeable css classes */
 .hidden {
   visibility: hidden;
@@ -205,30 +194,32 @@ header {
   visibility: visible;
   opacity: 1;
 }
-
 .col-centre {
   flex-direction: column;
   align-items: center;
 }
-
 /* Media queries css */
 @media (max-width: 1050px) {
   .forecasts {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     row-gap: 5px;
     column-gap: 5px;
     justify-items: center;
+    grid-auto-rows: column;
   }
   .forecastDay {
     width: auto;
     justify-self: stretch;
   }
+  .forecastDay:nth-child(5) {
+    grid-column: 1/3;
+    width: 100%;
+  }
   #currentForecast {
     padding: 5px 5px;
   }
-
   .currentForecastIcon {
     position: absolute;
   }
@@ -237,9 +228,6 @@ header {
   #cityName {
     font-size: large;
   }
-  /* .currentForecastIcon {
-    position: relative;
-  } */
 }
 @media (max-width: 600px) {
   header {
@@ -249,13 +237,18 @@ header {
     flex-direction: column;
     align-items: center;
   }
-
   #title {
     color: var(--white--scheme);
     font-size: 1.45em;
     text-shadow: 0 0 20px var(--dBlue--scheme);
   }
-  .forecasts {
-    grid-template-columns: 1fr;
+  .searchContainer {
+    width: 80%;
+  }
+  .forecastContainer {
+    width: 105%;
+  }
+  .forecastDay {
+    grid-column: 1/3;
   }
 }

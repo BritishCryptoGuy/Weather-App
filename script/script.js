@@ -1,6 +1,3 @@
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&units=metric
-// https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-
 //Variables including DOM
 const apiKey = "c8e7c2ae87c3fed959762e4a7c9e6b01";
 let currentDate = moment().format("DD/MM/YYYY");
@@ -47,6 +44,7 @@ function saveStorage(cityName) {
     localStorage.setItem("searchHistory", JSON.stringify(allSearches));
   }
 }
+
 //loadHistory function. Called to update prevSearch HTML
 function loadHistory() {
   prevSearch.innerHTML = "";
@@ -59,6 +57,7 @@ function loadHistory() {
     );
   }
 }
+
 //getForecast receives coordinates from previous fetch request. Then uses them to retrieve data required to insert forecast HTML
 function getForecast(data) {
   if (data === undefined) {
@@ -155,25 +154,11 @@ searchBtn.addEventListener("click", function () {
   }
 });
 prevSearch.addEventListener("click", function (e) {
-  getCoords(e.target.innerHTML);
+  if (e.target.localName === "p") {
+    getCoords(e.target.innerHTML);
+  } else {
+    return;
+  }
 });
 
 init();
-/*
-Data is put into search box. //
-Data is trimmed//
-data is used in fetch api in order to get city coords//
-City name is added to local storage 
-also this data is considered current and will be used for the current forecast//
-then data is passed to get weather function.//
-get weather function fetch requests using the coords received. //
-Gets data from api. //
-api data is then used to insertadjacent html into the forecasts //
-Only use the data that is for 12PM time// This should lead to five forecasts all at 12pm //
-
-
-
-*/
-// Page load
-// No search history or location or forecasts by default
-// local Storage is accseesed for search history
