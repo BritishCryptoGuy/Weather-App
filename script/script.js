@@ -15,8 +15,10 @@ function init() {
   loadHistory();
 }
 
-//notifcationFunc is called when an input doesn't match a city name in the api
-function notificationFunc() {
+//errorFunc is called when an input doesn't match a city name in the api
+function errorFunc(err) {
+  notification.textContent = "";
+  notification.textContent = `${err}`;
   notification.classList.add("show");
   setTimeout(function () {
     notification.classList.remove("show");
@@ -110,12 +112,13 @@ function getCoords(cityName) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
   )
-    .then((data) => data.json())
-    .then(function (info) {
-      if (info.name === undefined) {
-        notificationFunc();
-        return;
+    .then((data) => {
+      if (!data.ok) {
+        throw new Error("Unable to find City name");
       }
+      return data.json();
+    })
+    .then(function (info) {
       mainSection.classList.remove("col-centre");
       saveStorage(info.name);
       loadHistory();
@@ -130,7 +133,8 @@ function getCoords(cityName) {
       } else {
         getForecast(data);
       }
-    });
+    })
+    .catch((err) => errorFunc(err));
 }
 
 //Event Listeners

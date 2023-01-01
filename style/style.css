@@ -62,6 +62,7 @@ header {
   border-radius: 33px;
   border: 1px solid var(--dBlue--scheme);
   transition: all 0.75s ease;
+  z-index: 2;
 }
 /* div .main-section css */
 .main-section {
@@ -241,6 +242,10 @@ header {
     color: var(--white--scheme);
     font-size: 1.45em;
     text-shadow: 0 0 20px var(--dBlue--scheme);
+  }
+  .notification {
+    font-size: 20px;
+    padding: 10px 0px;
   }
   .searchContainer {
     width: 80%;
